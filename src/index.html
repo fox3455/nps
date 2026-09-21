@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>[Park Name]</title>
+    <title>Yellowstone National Park</title>
     <link rel="stylesheet" href="css/style.css" />
     <script type="module" src="js/main.js"></script>
   </head>
@@ -11,7 +11,7 @@
     <p class="disclaimer">
       This is not a real NPS website. It is an educational exercise. If you
       landed here by accident, to find the real website visit
-      <a href="parkUrl">[park name]</a>
+      <a href="https://www.nps.gov/yell/index.htm">Yellowstone National Park</a>
     </p>
     <div class="skip-links" aria-label="short-cut links" role="navigation">
       <ul>
@@ -36,8 +36,7 @@
           <a
             href="#park-footer"
             aria-label="Skip to this park information section"
-            >Skip to this park information section</a
-          >
+            >Skip to this park information section</a>
         </li>
       </ul>
     </div>
@@ -50,18 +49,22 @@
         <div class="global-header__right">
           <a class="search-icon" href="#park-footer">
             <svg class="icon">
-              <use xlink:href="/images/sprite.symbol.svg#search"></use>
+              <use xlink:href="images/sprite.symbol.svg#search"></use>
             </svg>
             <span class="visually-hidden">Search</span>
           </a>
-          <button id="global-nav-toggle">
+          <button
+            id="global-nav-toggle"
+            aria-expanded="false"
+            aria-controls="global-nav"
+          >
             <svg class="icon">
-              <use xlink:href="/images/sprite.symbol.svg#menu"></use>
+              <use xlink:href="images/sprite.symbol.svg#menu"></use>
             </svg>
             <span class="visually-hidden">Open</span> Menu
           </button>
         </div>
-        <nav class="global-nav">
+        <nav class="global-nav" id="global-nav">
           <h2 class="global-nav__section-heading">Explore this Park</h2>
           <ul class="global-nav__list">
             <li>
@@ -72,7 +75,7 @@
                     >Toggle submenu for Plan Your Visit</span
                   >
                   <svg class="icon" role="presentation" focusable="false">
-                    <use xlink:href="/images/sprite.symbol.svg#arrow"></use>
+                    <use xlink:href="images/sprite.symbol.svg#arrow"></use>
                   </svg>
                 </button>
               </div>
@@ -81,15 +84,62 @@
         </nav>
       </section>
       <section id="park-header">
-        <a href="#">
-          <span>Info</span>
-          <svg class="icon" role="presentation" focusable="false">
-            <use xlink:href="/images/sprite.symbol.svg#info"></use>
-          </svg>
-        </a>
-        <svg class="icon" role="presentation" focusable="false">
-          <use xlink:href="/images/sprite.symbol.svg#alert"></use>
-        </svg>
+        <div class="park-header__background">
+          <a href="#">
+            <img src="" alt="" />
+          </a>
+            <div class="park-header__background__overlay">
+            <a href="#" class="hero-banner__title">Yellowstone</a>
+              <p class="nps-park-header__title__info">
+                <span>National Park</span>
+                <span>ID,MT,WY</span>
+              </p>
+          </div>
+        </div>
+        <nav class="nps_park_info">
+          <ul>
+          <li>
+            <a href="#">
+              <span>Info</span>
+              <svg class="icon" role="presentation" focusable="false">
+                <use xlink:href="images/sprite.symbol.svg#info"></use>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span>Alerts</span>
+              <svg class="icon" role="presentation" focusable="false">
+                <use xlink:href="images/sprite.symbol.svg#alert"></use>
+            </svg>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span>Maps</span>
+              <svg class="icon" role="presentation" focusable="false">
+                <use xlink:href="images/sprite.symbol.svg#location"></use>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span>Calendar</span>
+              <svg class="icon" role="presentation" focusable="false">
+                <use xlink:href="images/sprite.symbol.svg#calendar"></use>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span>Fees</span>
+              <svg class="icon" role="presentation" focusable="false">
+                <use xlink:href="images/sprite.symbol.svg#fee-22"></use>
+              </svg>
+            </a>
+          </li>
+          </ul>
+        </nav>
       </section>
     </header>
     <main id="main"></main>
