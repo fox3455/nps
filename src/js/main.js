@@ -1,4 +1,6 @@
-import { getParkData } from "./parkService.mjs";
+import { getParkData, parkInfoLinks } from "./parkService.mjs";
+import { mediaCardTemplate } from "./templates.mjs";
+import { setHeaderFooter } from "./setHeaderFooter.mjs";
 
 const parkData = getParkData();
 
@@ -8,26 +10,6 @@ function setPageMeta(info) {
   const disclaimer = document.querySelector(".disclaimer > a");
   disclaimer.href = info.url;
   disclaimer.textContent = info.fullName;
-}
-
-function parkInfoTemplate(info) {
-  return `<a href="/" class="hero-banner__title">${info.name}</a>
-  <p class="nps-park-header__title__info">
-    <span>${info.designation}</span>
-    <span>${info.states}</span>
-  </p>`;
-}
-
-function renderParkHeader(info) {
-  const parkHeaderBackground = document.querySelector(".park-header__background img");
-  const parkHeaderLink = document.querySelector(".park-header__background > a");
-  const parkHeaderOverlay = document.querySelector(".park-header__background__overlay");
-  const [heroImage] = info.images;
-
-  parkHeaderBackground.src = heroImage.url;
-  parkHeaderBackground.alt = heroImage.altText;
-  parkHeaderLink.href = info.url;
-  parkHeaderOverlay.innerHTML = parkInfoTemplate(info);
 }
 
 function setupNavToggle() {
@@ -40,6 +22,20 @@ function setupNavToggle() {
   });
 }
 
+function setParkIntro(data) {
+  const parkInfoContainer = document.querySelector(".intro");
+  parkInfoContainer.innerHTML = `
+  <h1 class="intro__title">${data.fullName}</h1>
+  <p class="intro__description">${data.description}</p>`;
+}
+
+function setParkInfoLinks(links) {
+  const parkInfoLinksContainer = document.querySelector(".info");
+  parkInfoLinksContainer.insertAdjacentHTML("afterbegin", links.map(mediaCardTemplate).join(""));
+}
+
 setPageMeta(parkData);
-renderParkHeader(parkData);
 setupNavToggle();
+setHeaderFooter(parkData);
+setParkIntro(parkData);
+setParkInfoLinks(parkInfoLinks());

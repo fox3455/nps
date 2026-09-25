@@ -81,21 +81,21 @@ const park = {
       altText:
         "A crowd of people standing along a wooden boardwalk watches a geyser erupt.",
       caption: "Aurum Geyser erupting",
-      url: "https://www.nps.gov/common/uploads/structured_data/3C7D2FBB-1DD8-B71B-0BED99731011CFCE.jpg"
+      url: new URL("../images/aurumGeyser.jpg", import.meta.url).href
     },
     {
       credit: "NPS/Diane Renkin",
       title: "Black Pool",
       altText: "A visitor stands on a boardwalk near a hot spring and a lake.",
       caption: "Black Pool at the West Thumb Geyser Basin",
-      url: "https://www.nps.gov/common/uploads/structured_data/3C7D383B-1DD8-B71B-0BEC4A4D6BDF7CAD.jpg"
+      url: new URL("../images/blackPool.jpg", import.meta.url).href
     },
     {
       credit: "NPS/Jim Peaco",
       title: "Beehive Geyser",
       altText: "People on a wooden boardwalk watch a geyser erupt.",
       caption: "Visitors to the Upper Geyser Basin watch Beehive Geyser erupt.",
-      url: "https://www.nps.gov/common/uploads/structured_data/3C7D334F-1DD8-B71B-0B108C7771F4E854.jpg"
+      url: new URL("../images/beehiveGeyser.jpg", import.meta.url).href
     },
     {
       credit: "NPS/Jim Peaco",
@@ -141,7 +141,7 @@ const park = {
       title: "Bighorn sheep",
       altText: "Two bighorn sheep laying on the ground.",
       caption: "Two bighorn rams rest and chew their cud",
-      url: "https://www.nps.gov/common/uploads/structured_data/3C7D95DD-1DD8-B71B-0BC4FA19BD72F0EC.jpg"
+      url: new URL("../images/sheep.jpg", import.meta.url).href
     },
     {
       credit: "NPS/Diane Renkin",
@@ -179,6 +179,40 @@ const park = {
   designation: "National Park"
 };
 
+const info = [
+  {
+    name: "Current Conditions &#x203A;",
+    link: "conditions.html",
+    image: park.images[2].url,
+    description:
+      "See what conditions to expect in the park before leaving on your trip!"
+  },
+  {
+    name: "Fees and Passes &#x203A;",
+    link: "fees.html",
+    image: park.images[3].url,
+    description: "Learn about the fees and passes that are available."
+  },
+  {
+    name: "Visitor Centers &#x203A;",
+    link: "visitor_centers.html",
+    image: park.images[9].url,
+    description: "Learn about the visitor centers in the park."
+  }
+];
+
 export function getParkData() {
   return park;
+}
+
+export function parkInfoLinks() {
+  return info;
+}
+
+export function parkInfoTemplate(info) {
+  return `<a href="/" class="hero-banner__title">${info.name}</a>
+  <p class="nps-park-header__title__info">
+    <span>${info.designation}</span>
+    <span>${info.states}</span>
+  </p>`;
 }
