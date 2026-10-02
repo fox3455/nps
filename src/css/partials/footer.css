@@ -1,0 +1,36 @@
+/* Footer */
+
+#park-footer {
+  background-image: url("../images/topo_pattern.png");
+}
+
+.footerContent {
+  line-height: 10px;
+  padding: 1em;
+}
+
+#park-footer h3 {
+  font-family: var(--bs-font-serif);
+  text-transform: uppercase;
+}
+
+/* Utility styles */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.icon {
+  width: 1.25em;
+  height: 1.25em;
+  fill: white;
+}
