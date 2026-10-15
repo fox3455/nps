@@ -34,12 +34,12 @@ function setParkInfoLinks(links) {
 
 async function init() {
   const parkData = await getParkData();
-  
+  const links = getInfoLinks(parkData);
+
   setPageMeta(parkData);
   setupNavToggle();
   setHeaderFooter(parkData);
   setParkIntro(parkData);
-  const links = getInfoLinks(parkData);
   setParkInfoLinks(links);
 }
 

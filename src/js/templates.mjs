@@ -1,4 +1,5 @@
 import { parkInfoTemplate } from "./parkService.mjs";
+import spritePath from '../images/sprite.symbol.svg';
 
 export function mediaCardTemplate(info) {
   return `<a href="${info.link}" class="media-card">
@@ -51,4 +52,42 @@ export function footerTemplate(info) {
   <p>&copy; ${new Date().getFullYear()} National Park Service. All rights reserved.</p>
   </div>
   `;
+}
+
+export function parkAlertsTemplate(alert) {
+  let alertType = "";
+  switch (alert.category) {
+    case "Park Closure":
+      alertType = "closure";
+      break;
+    default:
+      alertType = alert.category.toLowerCase();
+  }
+  return `
+  <li class="alert">
+    <svg class="icon" focusable="false" aria-hidden="true">
+      <use xlink:href="${spritePath}#alert-${alertType}"></use>
+    </svg>
+    <div>
+      <h3 class="alert-${alertType}">${alert.title}</h3>
+      <p>${alert.description}</p>
+    </div>
+  </li>`;
+}
+
+export function parkVisitorCenterTemplate(visitorCenter) {
+  // some visitor centers have no address or phone listed
+  const address = visitorCenter.addresses?.[0];
+  const phone = visitorCenter.contacts?.phoneNumbers?.[0];
+  return `
+  <li class="visitor-center__list">
+      <h4>${visitorCenter.name}</h4>
+      <p>${visitorCenter.description}</p>
+      <p><strong>Address:</strong> ${address ? `${address.line1}, ${address.city}, ${address.stateCode} ${address.postalCode}` : "Not available"}</p>
+      <p><strong>Phone:</strong> ${phone ? phone.phoneNumber : "Not available"}</p>
+  </li>`;
+}
+
+export function parkActivitiesTemplate(activity) {
+  return `<li class="activity">${activity.name}</li>`;
 }

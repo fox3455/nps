@@ -1,0 +1,122 @@
+/* style.css */
+@import "partials/variables.css";
+@import "partials/global.css";
+@import "partials/header.css";
+@import "partials/footer.css";
+@import "partials/blocks.css";
+@import "partials/utilities.css";
+@import "home.css";
+
+/* Park intro styling */
+
+.intro {
+  margin: 1em auto;
+  padding: 0 1em;
+}
+
+.intro__title {
+  font-size: 2rem;
+  font-weight: normal;
+  font-family: var(--bs-font-serif);
+}
+
+.intro__description {
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+/* alerts */
+
+.alerts > ul {
+  list-style: none;
+  padding: 0;
+}
+
+.alert {
+  margin: 0.5rem;
+  padding: 0.5rem 0 0.8rem 0;
+  display: flex;
+  gap: 1em;
+  border-bottom: 1px solid var(--bs-grey-3);
+}
+
+.alert h3 {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.alert p {
+  margin: 0;
+}
+
+.alert svg {
+  height: 30px;
+  width: 30px;
+  margin: 0.25em;
+  flex: 0 0 auto;
+}
+
+/* bordered details boxes (visitor centers + activities) */
+
+#visitors > h2,
+#activities > h2 {
+  margin-bottom: 0.25rem;
+  padding-left: 1rem;
+  font-size: 1.8rem;
+  font-family: var(--bs-font-serif);
+}
+
+.visitor-center,
+.activities {
+  border: 1px solid var(--bs-grey-3);
+  border-radius: var(--bs-border-radius);
+  padding: 0.75rem 1rem;
+  margin: 1rem;
+}
+
+.visitor-center > summary,
+.activities > summary {
+  cursor: pointer;
+}
+
+.visitor-center > ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+}
+
+.visitor-center__list {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--bs-grey-3);
+}
+
+.visitor-center__list:last-child,
+.activity:last-child {
+  border-bottom: none;
+}
+
+.visitor-center__list h4 {
+  margin: 0 0 0.5rem;
+}
+
+details[open] > summary {
+  list-style-type: '⬆';
+}
+
+summary {
+  display: flex;
+}
+
+summary::after {
+  content: '';
+  width: 18px;
+  height: 10px;
+  background: url(https://byui-cse.github.io/wdd231-course/images/arrow.svg);
+  background-size: cover;
+  margin-left: .75em;
+  transition: 0.2s;
+}
+
+details[open] > summary::after {
+  transform: rotate(180deg);
+}
