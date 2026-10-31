@@ -17,7 +17,7 @@ function setupNavToggle() {
   const globalNav = document.getElementById("global-nav");
 
   navToggle.addEventListener("click", () => {
-    const isOpen = globalNav.classList.toggle("is-open");
+    const isOpen = globalNav.classList.toggle("show");
     navToggle.setAttribute("aria-expanded", String(isOpen));
   });
 }

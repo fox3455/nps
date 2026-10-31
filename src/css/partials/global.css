@@ -89,19 +89,45 @@ a:hover {
 }
 
 
+/* Global nav toggle button */
+
+.global-nav__toggle > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25em;
+}
+
+/* Close icon and word are hidden until the menu is opened */
+.global-nav__toggle .global-nav__toggle-close {
+  display: none;
+}
+
+/* Swap the Menu/Close labels based on the button's aria-expanded state */
+.global-nav__toggle[aria-expanded="true"] > .global-nav__toggle-open {
+  display: none;
+}
+
+.global-nav__toggle[aria-expanded="true"] > .global-nav__toggle-close {
+  display: inline-flex;
+}
+
 /* Global navigation styling */
 
+/* Hidden with max-height instead of display: none so it can slide open later */
 .global-nav {
-  display: none;
   position: absolute;
   top: 100%;
   left: 0;
   right: 0;
   background-color: var(--bs-black);
-  padding: 0.5em;
+  padding: 0 0.5em;
+  max-height: 0;
+  overflow: hidden;
   z-index: 10;
+  transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
 }
 
-.global-nav.is-open {
-  display: block;
+.global-nav.show {
+  max-height: 100vh;
+  padding: 0.5em;
 }

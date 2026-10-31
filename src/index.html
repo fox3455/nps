@@ -55,13 +55,23 @@
           </a>
           <button
             id="global-nav-toggle"
+            class="global-nav__toggle"
             aria-expanded="false"
+            aria-label="Open Menu"
             aria-controls="global-nav"
           >
-            <svg class="icon">
-              <use xlink:href="images/sprite.symbol.svg#menu"></use>
-            </svg>
-            <span class="visually-hidden">Open</span> Menu
+            <span class="global-nav__toggle-open">
+              <svg class="icon">
+                <use xlink:href="images/sprite.symbol.svg#menu"></use>
+              </svg>
+              <span class="visually-hidden">Open</span> Menu
+            </span>
+            <span class="global-nav__toggle-close">
+              <svg class="icon">
+                <use xlink:href="images/sprite.symbol.svg#close"></use>
+              </svg>
+              Close
+            </span>
           </button>
         </div>
         <nav class="global-nav" id="global-nav">
